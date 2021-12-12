@@ -82,7 +82,7 @@ const Field = () => {
         });
       }
     }
-  }, [currentCards]); 
+  }, [currentCards]);
 
   const handler = useCallback((params) => {
     changeOpenStatus(params);
@@ -107,24 +107,28 @@ const Field = () => {
       {showModal && (
         <div className="modal-wrap">
           <div className="modal">
-            <p> Вы победили! Попробуем снова?</p>
-            <button onClick={startAgain} className="modal__btn">
-              Да!
-            </button>
+            <div className="modal__title">
+              <p> Вы победили! Попробуем снова?</p>
+              <button onClick={startAgain} className="modal__btn">
+                Да!
+              </button>
+            </div>
           </div>
         </div>
       )}
-      <div className="field">
-        {cardList.map((params, ind) => {
-          return (
-            <FieldItem
-              key={ind}
-              params={params}
-              handler={handler}
-              currentCards={currentCards}
-            />
-          );
-        })}
+      <div className="app-wrap">
+        <div className="field">
+          {cardList.map((params, ind) => {
+            return (
+              <FieldItem
+                key={ind}
+                params={params}
+                handler={handler}
+                currentCards={currentCards}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );
